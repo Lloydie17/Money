@@ -49,10 +49,16 @@ input[type="text"], textarea {
     margin-bottom: 10px;
 }
 
-.stars span {
+.stars option {
     font-size: 2em;
     cursor: pointer;
     color: #ffcc00;
+}
+
+.stars option[selected] {
+    font-weight: bold;
+    background-color: #ffcc00;
+    color: white;
 }
 
 button {

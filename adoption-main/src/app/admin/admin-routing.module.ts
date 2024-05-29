@@ -7,6 +7,7 @@ import { OverviewComponent } from './overview.component';
 
 const accountsModule = () => import('./accounts/accounts.module').then(x => x.AccountsModule);
 const petsModule = () => import('./pets/pets.module').then(x => x.PetsModule);
+const ratingsModule = () => import('./ratings/ratings.module').then(x => x.RatingsModule);
 
 const routes: Routes = [
     { path: '', component: SubNavComponent, outlet: 'subnav' },
@@ -16,6 +17,7 @@ const routes: Routes = [
             { path: '', component: OverviewComponent },
             { path: 'accounts', loadChildren: accountsModule },
             { path: 'pets', loadChildren: petsModule },
+            { path: 'ratings', loadChildren: ratingsModule },
             
         ]
     }

@@ -7,6 +7,7 @@ import { PetService, RequestService, AccountService } from '@app/_services';
 })
 export class RequestListComponent implements OnInit {
   requests: any[];
+  selectedRequest: any;
 
   constructor(
     private requestService: RequestService,
@@ -48,6 +49,14 @@ export class RequestListComponent implements OnInit {
         console.error('Error fetching requests:', error);
       }
     );
+  }
+
+  openModal(request: any) {
+    this.selectedRequest = request;
+  }
+
+  closeModal() {
+    this.selectedRequest = null;
   }
   
   deleteRequest(id: number) {

@@ -25,6 +25,10 @@ export class RequestService {
     return this.http.get<any[]>(`${baseUrl}/user/${accountId}`);
   }
 
+  updateRequestStatus(id: number, status: string) {
+    return this.http.put(`${baseUrl}/status/${id}`, { status });
+  }
+
   deleteRequest(id: number): Observable<any> {
     return this.http.delete<any>(`${baseUrl}/${id}`);
   }

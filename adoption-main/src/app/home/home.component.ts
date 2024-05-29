@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
     account: any;
     pets: any[] = [];
     selectedPet: any;
+    isAdmin: boolean = false;
 
     constructor(
         private accountService: AccountService, 
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.account = this.accountService.accountValue;
+        this.isAdmin = this.account.role === 'Admin';
 
         this.loadPets();
     }
