@@ -11,7 +11,7 @@ function model(sequelize) {
         age: { type: DataTypes.STRING, allowNull: false },
         color: { type: DataTypes.STRING, allowNull: false },
         size: { type: DataTypes.STRING, allowNull: false },
-        type: { type: DataTypes.FLOAT, allowNull: false },
+        type: { type: DataTypes.STRING, allowNull: false },
         image: { type: DataTypes.STRING, allowNull: true } // Change the type to STRING to store the image path
     };
 

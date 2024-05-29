@@ -1,10 +1,10 @@
-// request.service.js
 const db = require('../_helpers/db');
 
 module.exports = {
     create,
     getAll,
     getByAccountId,
+    updateStatus,
     delete: _delete
 };
 
@@ -22,13 +22,19 @@ async function create(accountId, petId) {
     }
 }
 
-
 async function getAll() {
     return await db.Request.findAll();
 }
 
 async function getByAccountId(accountId) {
     return await db.Request.findAll({ where: { accountId } });
+}
+
+async function updateStatus(id) {
+    const request = await getRequest(id);
+
+    request.status = true;
+    await request.save();
 }
 
 async function _delete(id) {

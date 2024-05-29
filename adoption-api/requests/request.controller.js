@@ -1,4 +1,3 @@
-// request.controller.js
 const express = require('express');
 const router = express.Router();
 const authorize = require('_middleware/authorize');
@@ -8,6 +7,7 @@ router.post('/', authorize(), create);
 router.get('/', authorize(), getAll);
 router.get('/admin', authorize(), getAllRequests);
 router.get('/user/:accountId', authorize(), getByAccountId);
+router.put('/status/:id', authorize(), updateStatus); // Add this line
 router.delete('/:id', authorize(), _delete);
 
 module.exports = router;
@@ -37,6 +37,12 @@ function getAllRequests(req, res, next) {
 function getByAccountId(req, res, next) {
     requestService.getByAccountId(req.params.accountId)
         .then(requests => res.json(requests))
+        .catch(next);
+}
+
+function updateStatus(req, res, next) {
+    requestService.updateStatus(req.params.id)
+        .then(() => res.json({ message: 'Status updated successfully' }))
         .catch(next);
 }
 
