@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Reviews</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Adoption Reviews</h1>
+
+        <div class="review-form">
+            <h2>Add your review:</h2>
+            <label for="user-name">Your Name:</label>
+            <input type="text" id="user-name" placeholder="Enter your name"><br>
+            <textarea id="review-comment" rows="4" cols="50" placeholder="Write your review here..."></textarea><br>
+            <div class="stars" id="star-rating">
+                <span data-rating="1">&#9734;</span>
+                <span data-rating="2">&#9734;</span>
+                <span data-rating="3">&#9734;</span>
+                <span data-rating="4">&#9734;</span>
+                <span data-rating="5">&#9734;</span>
+            </div>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+
+        <div class="reviews">
+            <h2>Customer Reviews:</h2>
+            <div id="all-reviews"></div>
+        </div>
+    </div>
+</body>
+</html>
